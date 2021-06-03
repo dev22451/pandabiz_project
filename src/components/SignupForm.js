@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, useField } from 'formik';
 import * as Yup from 'yup';
+import { useHistory } from "react-router"
 
 const MyTextInput = ({ label, ...props }) => {
     // useField() returns [formik.getFieldProps(), formik.getFieldMeta()]
@@ -51,7 +52,11 @@ const MySelect = ({ label, ...props }) => {
 };
 
 // And now we can use these
-const SignupForm = () => {
+function SignupForm() {
+
+    const history = useHistory();
+
+
     return (
         <div className="signupform">
             <h6>Sign up now to start your free sales trial.</h6>
@@ -63,7 +68,7 @@ const SignupForm = () => {
                     acceptedTerms: false, // added for our checkbox
                     jobType: '', // added for our select
                     password: '',
-                    changepassword: ''
+                    // changepassword: ''
                 }}
                 validationSchema={Yup.object({
                     firstName: Yup.string()
@@ -112,14 +117,17 @@ const SignupForm = () => {
                         .required('Select the number of employees'),
                 })
                 }
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(userData, { setSubmitting }) => {
                     setTimeout(() => {
-                        alert(JSON.stringify(values, null, 2));
+                        const arr = [userData];
+                        localStorage.setItem("userData", JSON.stringify(arr));
+                        history.push("/login")
                         setSubmitting(false);
                     }, 400);
                 }}
             >
-                <Form>
+
+                <Form >
 
                     <div className="row">
                         <div className="col">
@@ -128,6 +136,8 @@ const SignupForm = () => {
                                 name="firstName"
                                 type="text"
                                 placeholder=""
+                            // value={firstName}
+                            // onChange={(e) => setFirstName(e.target.value)}
                             />
                         </div>
                         <div className="col">
@@ -136,6 +146,8 @@ const SignupForm = () => {
                                 name="lastName"
                                 type="text"
                                 placeholder=""
+                            // value={lastName}
+                            // onChange={(e) => setLastName(e.target.value)}
                             />
                         </div>
                     </div>

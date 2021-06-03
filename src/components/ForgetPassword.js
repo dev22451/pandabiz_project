@@ -1,7 +1,9 @@
-import ForgetPassForm from "./ForgetPassForm"
+import React from 'react'
 import { GiCheckMark } from "react-icons/gi";
+import ForgetPassForm from "./ForgetPassForm"
 
-const ForgetPassPage = () => {
+
+function ForgetPassPage() {
     return (
 
         <div className="container mt-5">

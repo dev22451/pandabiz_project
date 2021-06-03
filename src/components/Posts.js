@@ -25,7 +25,7 @@ const Posts = ({ posts, loading }) => {
                             </thead>
                             <tbody>
                                 {
-                                    posts && posts.map((post, index) => (
+                                    posts && posts.map((post) => (
                                         <tr key={post.id} className="table-border">
 
                                             <th scope="row">{post.id}</th>
