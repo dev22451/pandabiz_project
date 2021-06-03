@@ -1,5 +1,5 @@
 import React from 'react'
-import { Scatter, Bubble, PolarArea, Pie, Bar, Doughnut } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
 function LineChart() {
     const data = {
