@@ -1,10 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router"
-import {
-    Redirect
-} from "react-router-dom"
-// import { Formik } from "formik";
-// import * as Yup from "yup";
 
 const LoginForm = () => {
 
@@ -36,10 +31,6 @@ const LoginForm = () => {
     const handleSignClick = () => {
         history.push("/signup");
     }
-
-    // const handleLoginClick = () => {
-    //     history.push("/navbar")
-    // }
 
     const handleForget = () => {
         history.push("/forget")
