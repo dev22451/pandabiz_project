@@ -117,11 +117,10 @@ function SignupForm() {
                         .required('Select the number of employees'),
                 })
                 }
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(userData, { setSubmitting }) => {
                     setTimeout(() => {
-                        const arr = [values];
-                        console.log(arr)
-                        localStorage.setItem("values", JSON.stringify(arr));
+                        const arr = [userData];
+                        localStorage.setItem("userData", JSON.stringify(arr));
                         history.push("/login")
                         setSubmitting(false);
                     }, 400);

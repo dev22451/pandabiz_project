@@ -2,7 +2,7 @@ import React from "react"
 
 const SignupInfo = () => {
 
-    const data = JSON.parse(localStorage.getItem('values'));
+    const data = JSON.parse(localStorage.getItem('userData'));
 
     return (
         <div className="row">

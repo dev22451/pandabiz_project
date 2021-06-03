@@ -1,6 +1,5 @@
-import { validateYupSchema } from 'formik';
 import React, { useState } from 'react';
-import { Router, Switch, useHistory } from "react-router"
+import { useHistory } from "react-router"
 import {
     Redirect
 } from "react-router-dom"
@@ -18,12 +17,13 @@ const LoginForm = () => {
             return (
                 instance.email === email && instance.password === pwd
             )
+
         })
+        localStorage.setItem("Email", email);
+        localStorage.setItem("password", pwd);
 
         if (isAvailable) {
             // set log in data in localstore and redirect
-            // localStorage.setItem("Email", email);
-            // localStorage.setItem("password", pwd);
             history.push("/signupinfo")
         }
         else {
@@ -32,7 +32,7 @@ const LoginForm = () => {
             history.push("/signup")
         }
     };
-    const user = JSON.parse(localStorage.getItem('values'));
+    const user = JSON.parse(localStorage.getItem('userData'));
     const handleSignClick = () => {
         history.push("/signup");
     }
