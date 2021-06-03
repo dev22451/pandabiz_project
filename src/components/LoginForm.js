@@ -14,37 +14,25 @@ const LoginForm = () => {
     const history = useHistory();
 
     const handle = () => {
-
         const isAvailable = user.find((instance) => {
-
             return (
                 instance.email === email && instance.password === pwd
             )
-
         })
 
         if (isAvailable) {
             // set log in data in localstore and redirect
-            localStorage.setItem("Email", email);
-            localStorage.setItem("password", pwd);
+            // localStorage.setItem("Email", email);
+            // localStorage.setItem("password", pwd);
             history.push("/signupinfo")
-
-            console.log("yes")
         }
         else {
             // show error msg
-
             alert("enter the valid email and password")
             history.push("/signup")
-            console.log("no")
-
         }
-
-
-
     };
     const user = JSON.parse(localStorage.getItem('values'));
-
     const handleSignClick = () => {
         history.push("/signup");
     }
@@ -57,25 +45,35 @@ const LoginForm = () => {
         history.push("/forget")
     }
 
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value)
+    }
+
+    const handlePasswordChange = (e) => {
+        setPwd(e.target.value)
+    }
+
     return (
         <div className="row h-100 justify-content-center align-items-center">
             <h5 className="text-center display-5">PandaBiz</h5>
             <form className="login">
                 <div className="mb-3">
                     <label htmlFor="email" className="label-form mb-1 text-muted control">Email</label>
-                    <input type="text" id="eamil"
+                    <input type="text"
+                        id="eamil"
                         className="form-control"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        onChange={handleEmailChange}
                     />
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="password" className="label-form mb-1 text-muted">Password</label>
-                    <input type="password" id="password" className="form-control"
+                    <input type="password"
+                        id="password"
+                        className="form-control"
                         value={pwd}
-                        onChange={(e) => setPwd(e.target.value)}
-
+                        onChange={handlePasswordChange}
                     />
                 </div>
 

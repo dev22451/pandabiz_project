@@ -8,6 +8,7 @@ import device from '../Images/device.png';
 import LoginForm from './LoginForm';
 
 
+
 function Arrow(props) {
     let className = props.type === "next" ? "nextArrow" : "prevArrow";
     className += " arrow";
