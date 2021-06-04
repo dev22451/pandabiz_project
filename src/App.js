@@ -18,7 +18,6 @@ import Pagination from "./components/Pagination"
 import LineChart from "./components/LineChart"
 import Navbar from "./components/Navbar"
 import SignupInfo from "./components/SignupInfo"
-import LoginForm from './components/LoginForm'
 
 const App = () => {
   const [posts, setPosts] = useState([]);
@@ -59,7 +58,7 @@ const App = () => {
           <Route exact path="/signup">
             <SignupPage />
           </Route>
-          <Router>
+          {/* <Router>
             <Switch>
               <Route exact path="/signupinfo">
                 <SignupInfo />
@@ -71,7 +70,7 @@ const App = () => {
                 <LineChart />
               </Route>
             </Switch>
-          </Router>
+          </Router> */}
           <Router>
             <Navbar />
             <Switch>
@@ -82,7 +81,7 @@ const App = () => {
                   </div>
                 </div>
               </Route>
-              <Route exact path="/posts">
+              <Route path="/posts">
                 <Posts posts={currentPosts} loading={loading} /><br />
                 <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} Paginate={paginate} />
               </Route>

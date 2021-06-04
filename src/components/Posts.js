@@ -1,9 +1,27 @@
 import React from 'react'
 
+
 const Posts = ({ posts, loading }) => {
     if (loading) {
         return <h2>loading..</h2>;
     }
+    const renderPostTable = () => {
+        return posts.map((post) => (
+            <tr key={post.id} className="table-border">
+                <th scope="row">{post.id}</th>
+                <td>{post.service_name}</td>
+                <td>{post.parent_category}</td>
+                <td>{post.image}</td>
+                <td>{post.rate_per_min}</td>
+                <td>{post.avg_time_taken}</td>
+                <td>{post.mode}</td>
+                <td>{post.level}</td>
+                <td>{post.created_at} </td>
+            </tr>
+        ))
+
+    }
+
     return (
         <div className="row">
             <div className="container">
@@ -24,21 +42,7 @@ const Posts = ({ posts, loading }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {
-                                    posts && posts.map((post) => (
-                                        <tr key={post.id} className="table-border">
-
-                                            <th scope="row">{post.id}</th>
-                                            <td>{post.service_name}</td>
-                                            <td>{post.parent_category}</td>
-                                            <td>{post.image}</td>
-                                            <td>{post.rate_per_min}</td>
-                                            <td>{post.avg_time_taken}</td>
-                                            <td>{post.mode}</td>
-                                            <td>{post.level}</td>
-                                            <td>{post.created_at} </td>
-                                        </tr>
-                                    ))}
+                                {renderPostTable()}
                             </tbody>
 
                         </table>

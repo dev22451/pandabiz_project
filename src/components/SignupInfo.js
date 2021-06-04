@@ -5,24 +5,22 @@ const SignupInfo = () => {
     const data = JSON.parse(localStorage.getItem('userData'));
 
     const renderPostItem = () => {
-        return (
+        return data && data.map((post) => (
+            <tr key={post.id} className="table-border">
 
-            data && data.map((post, index) => (
-                <tr key={post.id} className="table-border">
+                <th scope="row">{post.firstName}</th>
+                <td>{post.lastName}</td>
+                <td>{post.email}</td>
+                <td>{post.jobType}</td>
+                <td>{post.company}</td>
+                <td>{post.phone}</td>
+                <td>{post.password}</td>
+                <td>{post.confirmpassword}</td>
+                <td>{post.employees} </td>
+            </tr>
+        ))
 
-                    <th scope="row">{post.firstName}</th>
-                    <td>{post.lastName}</td>
-                    <td>{post.email}</td>
-                    <td>{post.jobType}</td>
-                    <td>{post.company}</td>
-                    <td>{post.phone}</td>
-                    <td>{post.password}</td>
-                    <td>{post.confirmpassword}</td>
-                    <td>{post.employees} </td>
-                </tr>
-            ))
 
-        )
     }
     return (
         <div className="row">
