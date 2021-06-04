@@ -4,6 +4,26 @@ const SignupInfo = () => {
 
     const data = JSON.parse(localStorage.getItem('userData'));
 
+    const renderPostItem = () => {
+        return (
+
+            data && data.map((post, index) => (
+                <tr key={post.id} className="table-border">
+
+                    <th scope="row">{post.firstName}</th>
+                    <td>{post.lastName}</td>
+                    <td>{post.email}</td>
+                    <td>{post.jobType}</td>
+                    <td>{post.company}</td>
+                    <td>{post.phone}</td>
+                    <td>{post.password}</td>
+                    <td>{post.confirmpassword}</td>
+                    <td>{post.employees} </td>
+                </tr>
+            ))
+
+        )
+    }
     return (
         <div className="row">
             <div className="table-responsive mt-5">
@@ -21,24 +41,7 @@ const SignupInfo = () => {
                             <th scope="col">employees</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {
-                            data && data.map((post, index) => (
-                                <tr key={post.id} className="table-border">
-
-                                    <th scope="row">{post.firstName}</th>
-                                    <td>{post.lastName}</td>
-                                    <td>{post.email}</td>
-                                    <td>{post.jobType}</td>
-                                    <td>{post.company}</td>
-                                    <td>{post.phone}</td>
-                                    <td>{post.password}</td>
-                                    <td>{post.confirmpassword}</td>
-                                    <td>{post.employees} </td>
-                                </tr>
-                            ))}
-                    </tbody>
-
+                    {renderPostItem()}
                 </table>
             </div>
         </div>
