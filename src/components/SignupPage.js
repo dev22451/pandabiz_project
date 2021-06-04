@@ -1,4 +1,3 @@
-import React from 'react'
 import device from '../Images/device.png'
 import icon1 from '../Images/trial-icon-1.png'
 import SignupForm from './SignupForm'
@@ -8,10 +7,15 @@ function SignupPage() {
         <div className="row">
             <div className="col-md-6 ">
 
+                {/* head-info */}
                 <div className="signuppage">
                     <div className="head-div container-fluid">
                         <h4 className="heading">PandaBiz</h4>
-                        <div className="d-flex"><br />
+                        <div className="d-flex">
+
+                            <div className="logo">
+
+                            </div><br />
                             <div className="head">
                                 <span className="headfirst">Get Your FREE 30-Days Trial Now!</span><br />
                                 <span className="headsecond">Sales Cloud - Professional Edition</span><br />
@@ -45,7 +49,7 @@ function SignupPage() {
                                     </div>
                                     <div className="features-head">
                                         <div className="features-heading flex-column">Unlimited Features</div>
-                                        <p className="features-details">Access all features of the worlds #1 CRM!</p>
+                                        <p className="features-details">Access all features of the world's #1 CRM!</p>
                                     </div>
                                 </div>
                             </div>

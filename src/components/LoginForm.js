@@ -1,87 +1,38 @@
-import React, { useState } from 'react';
 import { useHistory } from "react-router"
-import {
-    Redirect
-} from "react-router-dom"
-// import { Formik } from "formik";
-// import * as Yup from "yup";
+
 
 const LoginForm = () => {
+    let history = useHistory();
 
-    const [email, setEmail] = useState('');
-    const [pwd, setPwd] = useState('');
-    const history = useHistory();
-
-    const handle = () => {
-        const isAvailable = user.find((instance) => {
-            return (
-                instance.email === email && instance.password === pwd
-            )
-
-        })
-        localStorage.setItem("Email", email);
-        localStorage.setItem("password", pwd);
-
-        if (isAvailable) {
-            // set log in data in localstore and redirect
-            history.push("/signupinfo")
-        }
-        else {
-            // show error msg
-            alert("enter the valid email and password")
-            history.push("/signup")
-        }
-    };
-    const user = JSON.parse(localStorage.getItem('userData'));
     const handleSignClick = () => {
         history.push("/signup");
     }
 
-    // const handleLoginClick = () => {
-    //     history.push("/navbar")
-    // }
+    const handleLoginClick = () => {
+        history.push("/navbar")
+    }
 
     const handleForget = () => {
         history.push("/forget")
     }
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handlePasswordChange = (e) => {
-        setPwd(e.target.value)
-    }
-
     return (
-        <div className="row h-100 justify-content-center align-items-center">
+        <div class="row h-100 justify-content-center align-items-center">
             <h5 className="text-center display-5">PandaBiz</h5>
             <form className="login">
                 <div className="mb-3">
-                    <label htmlFor="email" className="label-form mb-1 text-muted control">Email</label>
-                    <input type="text"
-                        id="eamil"
-                        className="form-control"
-                        value={email}
-                        onChange={handleEmailChange}
-                    />
+                    <label htmlFor="username" className="label-form mb-1 text-muted ">Username</label>
+                    <input type="text" id="username" class="form-control" />
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="password" className="label-form mb-1 text-muted">Password</label>
-                    <input type="password"
-                        id="password"
-                        className="form-control"
-                        value={pwd}
-                        onChange={handlePasswordChange}
-                    />
+                    <input type="password" id="password" class="form-control" />
                 </div>
-
 
                 <div className="d-flex justify-content-between align-items-center mb-2">
 
                     <button className="btn btn-primary" onClick={handleSignClick} type="button">Sign Up</button>
-                    <button className="btn btn-primary" onClick={handle} type="button">Log In</button>
+                    <button className="btn btn-primary" onClick={handleLoginClick} type="button">Log In</button>
 
                 </div>
                 <br />
@@ -103,8 +54,8 @@ const LoginForm = () => {
                 <hr className="new1" />
             </form>
             <footer>
-                <div className="text-center">
-                    <p className="terms text-muted">© 2021 hangingpanda.com, inc. All rights reserved. | <a href="#" className="text-decoration-none">Privacy</a> </p>
+                <div class="text-center">
+                    <p className="terms text-muted">© 2021 hangingpanda.com, inc. All rights reserved. | <a href="" className="text-decoration-none">Privacy</a> </p>
                 </div>
             </footer>
         </div>

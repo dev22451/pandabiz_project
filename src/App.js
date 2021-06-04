@@ -1,25 +1,26 @@
-import React from 'react'
-import "./App.scss"
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-// import ls from 'local-storage'
-import { useEffect, useState } from "react"
+import './App.scss';
+// import "./Styles.scss";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import SignupPage from './components/SignupPage';
+import LoginPage from './components/LoginPage';
+import ForgetPassForm from './components/ForgetPassForm'
+import ForgetPassword from './components/ForgetPassword';
+import Main from './components/Main';
+import { CssBaseline } from '@material-ui/core';
+import { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link, Redirect
-} from "react-router-dom"
+  Link
+} from "react-router-dom";
 import axios from "axios"
-import SignupPage from "./components/SignupPage"
-import LoginPage from "./components/LoginPage"
-import ForgetPassword from "./components/ForgetPassword"
-import Posts from "./components/Posts"
-import Pagination from "./components/Pagination"
-import LineChart from "./components/LineChart"
-import Navbar from "./components/Navbar"
-import SignupInfo from "./components/SignupInfo"
-import LoginForm from './components/LoginForm'
-
+import Api from './api/Api';
+import { object } from 'yup/lib/locale';
+import Posts from './components/Posts';
+import Pagination from './components/Pagination';
+import LineChart from './components/LineChart';
+import Navbar from './components/Navbar'
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -35,16 +36,15 @@ const App = () => {
     }
     fetchPosts();
   }, []);
+  console.log(posts)
 
-
-  //  get current posts
+  //get current posts
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
-  //  change page
+  //change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
-
   return (
     <div className="App">
       <Router>
@@ -59,19 +59,6 @@ const App = () => {
           <Route exact path="/signup">
             <SignupPage />
           </Route>
-          <Router>
-            <Switch>
-              <Route exact path="/signupinfo">
-                <SignupInfo />
-              </Route>
-              <Route exact path="/login">
-                <LoginPage />
-              </Route>
-              <Route exact path="/linechart">
-                <LineChart />
-              </Route>
-            </Switch>
-          </Router>
           <Router>
             <Navbar />
             <Switch>
@@ -90,9 +77,22 @@ const App = () => {
               <Route path='/products' component={ForgetPassword} />
             </Switch>
           </Router>
-
         </Switch>
       </Router >
+      {/* <Posts posts={currentPosts} loading={loading} /><br />
+      <Pagination postsPerPage={postsPerPage} totalPosts={posts.length} Paginate={paginate} /> */}
+      {/* <div className="col-md-8 offset-md-2 ">
+        <div className="chart">
+          <LineChart />
+        </div>
+      </div> */}
+      {/* <Router>
+        <Navbar />
+        <Switch>
+          <Route path='/' />
+        </Switch>
+      </Router> */}
+      {/* <LineChart /> */}
     </div >
   );
 }

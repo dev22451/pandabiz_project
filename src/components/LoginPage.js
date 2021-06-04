@@ -1,13 +1,11 @@
-import React from 'react'
-// import Daco from '../Images/Daco.png';
+
+import Daco from '../Images/Daco.png';
+import device from '../Images/device.png';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import device from '../Images/device.png';
 import LoginForm from './LoginForm';
-
-
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 function Arrow(props) {
     let className = props.type === "next" ? "nextArrow" : "prevArrow";
@@ -20,7 +18,13 @@ function Arrow(props) {
     );
 }
 
-function LoginPage() {
+function customPaging(i) {
+    return <div className="dot"></div>;
+}
+
+
+
+const LoginPage = () => {
     return (
         <div className="container mt-5">
             <div className="row">
@@ -37,7 +41,7 @@ function LoginPage() {
                                     autoplay={true}
                                     fade={false}
                                     pauseOnHover={true}
-                                    // customPaging={customPaging}
+                                    customPaging={customPaging}
                                     dotsClass={"slick-dots slick-thumb"}
                                 >
 
