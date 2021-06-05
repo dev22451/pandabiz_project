@@ -58,7 +58,7 @@ const App = () => {
           <Route exact path="/signup">
             <SignupPage />
           </Route>
-          {/* <Router>
+          <Router>
             <Switch>
               <Route exact path="/signupinfo">
                 <SignupInfo />
@@ -70,7 +70,7 @@ const App = () => {
                 <LineChart />
               </Route>
             </Switch>
-          </Router> */}
+          </Router>
           <Router>
             <Navbar />
             <Switch>
