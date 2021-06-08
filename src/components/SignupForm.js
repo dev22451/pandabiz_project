@@ -122,6 +122,7 @@ function SignupForm() {
                         const arr = [userData];
                         localStorage.setItem("userData", JSON.stringify(arr));
                         history.push("/login")
+
                         setSubmitting(false);
                     }, 400);
                 }}

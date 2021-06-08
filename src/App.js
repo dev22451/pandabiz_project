@@ -89,7 +89,6 @@ const App = () => {
               <Route path='/products' component={ForgetPassword} />
             </Switch>
           </Router>
-
         </Switch>
       </Router >
     </div >

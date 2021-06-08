@@ -1,11 +1,15 @@
 import React from "react"
+import { uniq } from "lodash";
+
+const _ = require('lodash')
 
 const SignupInfo = () => {
 
-    const data = JSON.parse(localStorage.getItem('userData'));
 
+    const data = JSON.parse(localStorage.getItem('userData'));
+    let _ = uniq(data)
     const renderPostItem = () => {
-        return data && data.map((post) => (
+        return _ && _.map((post) => (
             <tr key={post.id} className="table-border">
 
                 <th scope="row">{post.firstName}</th>
