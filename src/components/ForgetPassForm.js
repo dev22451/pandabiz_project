@@ -1,13 +1,15 @@
-const ForgetPassForm = () => {
+import React from 'react'
+
+function ForgetPassForm() {
     return (
-        <div class="row h-100 justify-content-center align-items-center">
+        <div className="row h-100 justify-content-center align-items-center">
             <form className="forgot rounded">
                 <h4 className="text-center mb-3 lead" >Forgot Your Password</h4>
                 <p className="small"> Having trouble logging in?</p>
                 <ul>
                     <li className="small">Usernames are in the form of an email address.</li>
                     <li className="small">Passwords are case sensitive.</li>
-                    <li className="small"><a href="#" className="text-decoration-none">Sendbox Login.</a></li>
+                    <li className="small"><a href="/#" className="text-decoration-none">Sendbox Login.</a></li>
                 </ul>
                 <p className="small">To reset your password, enter your PandaBiz username.</p>
                 <div className="mb-3">
@@ -23,7 +25,7 @@ const ForgetPassForm = () => {
 
                 </div>
                 <br />
-                <p className="small">Video:<a href="#" className=" text-decoration-none">Need Help Logging In? </a></p>
+                <p className="small">Video:<a href="/#" className=" text-decoration-none">Need Help Logging In? </a></p>
             </form>
         </div>
     )
