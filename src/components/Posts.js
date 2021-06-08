@@ -1,12 +1,12 @@
 import React from 'react'
-
+import { map } from "lodash"
 
 const Posts = ({ posts, loading }) => {
     if (loading) {
         return <h2>loading..</h2>;
     }
     const renderPostTable = () => {
-        return posts.map((post) => (
+        return map(posts, post => (
             <tr key={post.id} className="table-border">
                 <th scope="row">{post.id}</th>
                 <td>{post.service_name}</td>

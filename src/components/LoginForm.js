@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router"
+import { find } from "lodash"
 
 const LoginForm = () => {
 
@@ -8,7 +9,7 @@ const LoginForm = () => {
     const history = useHistory();
 
     const handle = () => {
-        const isAvailable = user.find((instance) => {
+        const isAvailable = find(user, instance => {
             return (
                 instance.email === email && instance.password === pwd
             )

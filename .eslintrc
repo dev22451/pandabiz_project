@@ -179,6 +179,9 @@
         ],
         "no-nested-ternary": [
             "off"
+        ],
+        "prefer-arrow-callback": [
+            "off"
         ]
     }
 }
